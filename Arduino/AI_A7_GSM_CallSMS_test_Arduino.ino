@@ -8,10 +8,12 @@ void setup() {
   A7Serial.begin(115200);
   Serial.begin(9600);
   delay(500);
-//  sms();
-//  Serial.println("Message Sent??");
-//  delay(500);
-//  delay(500);
+
+  sms();
+  delay(500);
+  Serial.println("Message Sent??");
+  delay(500);
+
   Serial.println("Trying call...");
   call();
   Serial.println("Called...???");
@@ -43,9 +45,9 @@ void A7SerialEvent(){
 //    while(A7Serial.available() > 0){
 //      Serial.print((char)A7Serial.read());
 //    }
-      String A7AT = A7Serial.readString();
-      A7AT.trim();
-      Serial.println( A7AT );
+      String from_A7AT = A7Serial.readString(); //read data/response from A7 module
+      from_A7AT.trim();
+      Serial.println( from_A7AT );  //print data/response from A7 module to arduino serial monitor
     }
 }
 
