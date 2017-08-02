@@ -54,8 +54,8 @@ void A7SerialEvent(){
 //    while(A7Serial.available() > 0){
 //      Serial.print((char)A7Serial.read());
 //    }
-      String A7AT = A7Serial.readString();
-      Serial.println( "\n###A7(GSM module): \n"+A7AT+"\n................................" );
+      String A7AT = A7Serial.readString();  //read data/response from A7 module
+      Serial.println( "\n###A7(GSM module): \n"+A7AT+"\n.................." ); //print data/response from A7 module to Serial Monitor
     }
     delay(2);   //to stabilize data communication
 }
@@ -122,6 +122,6 @@ void wait(long del){
     }
     
     A7SerialEvent();
-    yield();
+    yield();      //unlike typical arduino boards, this is a special requirement for NodeMCU
   }
 }
